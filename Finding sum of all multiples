@@ -1,0 +1,33 @@
+public class Main
+{
+	public static void main(String[] args) {
+	    int a = 3;
+	    int b = 5;
+	    long limit = 1000;
+	    int lcm = FindLcm(a,b);
+		System.out.println("Lcm of two numbers is " + lcm);
+		long sumA = SumOfMultiplesOfA(a,limit);
+		long sumB = SumOfMultiplesOfA(b,limit);
+		long sumCommon = SumOfMultiplesOfA(lcm,limit);
+		System.out.println("Sum of multiples of no  "+a+" is " + sumA);
+		System.out.println("Sum of multiples of no  "+b+" is " + sumB);
+		System.out.println("Sum of common multiples of nos "+a+ "," +b+" is " + sumCommon);
+		System.out.println("Sum of all the multiples of "+a+" or "+b+" below "+limit+" is " + (sumA+sumB-sumCommon));
+		
+	}
+	public static long SumOfMultiplesOfA(int a, long  limit)
+	{
+	    long n = (limit-1)/a;
+	    return a * ((n*(n+1))/2);
+	}
+	public static int FindLcm(int a, int b)
+	{
+	    return (a*b)/FindGcd(a,b);
+	}
+	public static int FindGcd(int a,int b)
+	{
+	    if(b == 0)
+	        return a;
+	    return FindGcd(b,a%b);
+	}
+}
